@@ -1,69 +1,22 @@
 # ElectiveAssistant
 
-A customizable AI chatbot assistant built with Next.js, featuring web search capabilities, vector database integration, and content moderation. This repository provides a complete foundation for deploying your own AI assistant with minimal technical knowledge required.
+A customizable AI chatbot assistant built with Next.js, featuring web search capabilities, vector database integration, and content moderation.
 
 ## Overview
 
 ElectiveAssistant is an AI-powered chatbot that can:
 
-- Answer questions using advanced language models
-- Search the web for up-to-date information
+- Answer questions using advanced language models (GPT-4.1-mini)
 - Search a vector database (Pinecone) for stored knowledge
 - Moderate content to ensure safe interactions
 - Provide citations and sources for its responses
 
-The application is designed to be easily customizable without deep technical expertise. Most changes you'll want to make can be done in just two files: `config.ts` and `prompts.ts`.
-
-This application is deployed on Vercel. After making changes to `config.ts` or `prompts.ts`, commit and push your changes to trigger a new deployment.
-
-## Key Files to Customize
-
-### `config.ts` - Application Configuration
-
-This is the **primary file** you'll edit to customize your AI assistant. Located in the root directory, it contains:
-
-- **AI Identity**: `AI_NAME` and `OWNER_NAME` - Change these to personalize your assistant
-- **Welcome Message**: `WELCOME_MESSAGE` - The greeting users see when they first open the chat
-- **UI Text**: `CLEAR_CHAT_TEXT` - The label for the "New Chat" button
-- **Moderation Messages**: Custom messages shown when content is flagged (sexual content, harassment, hate speech, violence, self-harm, illegal activities)
-- **Model Configuration**: `MODEL` - The AI model being used (currently set to OpenAI's GPT-5-mini)
-- **Vector Database Settings**: `PINECONE_TOP_K` and `PINECONE_INDEX_NAME` - Settings for your knowledge base search
-
-**Example customization:**
-
-```typescript
-export const AI_NAME = "Your Assistant Name";
-export const OWNER_NAME = "Your Name";
-export const WELCOME_MESSAGE = `Hello! I'm ${AI_NAME}, ready to help you.`;
-```
-
-### `prompts.ts` - AI Behavior and Instructions
-
-This file controls **how your AI assistant behaves and responds**. Located in the root directory, it contains:
-
-- **Identity Prompt**: Who the AI is and who created it
-- **Tool Calling Prompt**: Instructions for when to search the web or database
-- **Tone & Style**: How the AI should communicate (friendly, helpful, educational)
-- **Guardrails**: What the AI should refuse to discuss
-- **Citation Rules**: How to cite sources in responses
-- **Course Context**: Domain-specific instructions (currently mentions course syllabus)
-
-The prompts are modular, so you can edit individual sections without affecting others. The `SYSTEM_PROMPT` combines all these sections.
-
-**Example customization:**
-
-```typescript
-export const TONE_STYLE_PROMPT = `
-- Maintain a professional, business-focused tone.
-- Use clear, concise language suitable for executives.
-- Provide actionable insights and recommendations.
-`;
-```
+This application is deployed on Vercel.
 
 ## Project Structure
 
 ```text
-myAI3/
+ElectiveAssistant/
 ├── app/                          # Next.js application files
 │   ├── api/chat/                 # Chat API endpoint
 │   │   ├── route.ts              # Main chat handler
@@ -135,48 +88,6 @@ Configure environment variables in your Vercel project settings (Settings → En
 
 **Note**: Only `OPENAI_API_KEY` is strictly required. The others enable additional features.
 
-## Customization Guide
-
-### Changing the AI's Name and Identity
-
-1. Open `config.ts`
-2. Modify `AI_NAME` and `OWNER_NAME`
-3. Update `WELCOME_MESSAGE` if desired
-4. Commit and push changes to trigger a new Vercel deployment
-
-### Adjusting AI Behavior
-
-1. Open `prompts.ts`
-2. Edit the relevant prompt section:
-   - `TONE_STYLE_PROMPT` - Change communication style
-   - `GUARDRAILS_PROMPT` - Modify safety rules
-   - `TOOL_CALLING_PROMPT` - Adjust when tools are used
-   - `CITATIONS_PROMPT` - Change citation format
-3. Commit and push changes to trigger a new Vercel deployment
-
-### Customizing Moderation Messages
-
-1. Open `config.ts`
-2. Find the `MODERATION_DENIAL_MESSAGE_*` constants
-3. Update the messages to match your brand voice
-4. These messages appear when content is flagged
-
-### Changing the AI Model
-
-1. Open `config.ts`
-2. Modify the `MODEL` export (line 4)
-3. Available models depend on your AI SDK provider
-4. Update API keys in `.env.local` if switching providers
-
-### Adding or Removing Tools
-
-Tools are located in `app/api/chat/tools/`. To add a new tool:
-
-1. Create a new file in `app/api/chat/tools/`
-2. Import and add it to `app/api/chat/route.ts` in the `tools` object
-3. Add UI display logic in `components/messages/tool-call.tsx`
-4. See `AGENTS.md` for more technical details
-
 ## Architecture Overview
 
 The application follows a simple request-response flow:
@@ -190,7 +101,6 @@ The application follows a simple request-response flow:
 The AI can autonomously decide to:
 
 - Answer directly
-- Search the web for current information
 - Search your vector database for stored knowledge
 - Combine multiple sources
 
@@ -223,24 +133,9 @@ All responses include citations when sources are used.
 - Verify all environment variables are set in Vercel project settings
 - Ensure your Vercel project is connected to the correct Git repository
 
-## Next Steps
-
-1. **Customize branding**: Update `config.ts` with your name and AI assistant name
-
-2. **Adjust prompts**: Modify `prompts.ts` to match your use case and tone
-
-3. **Set up knowledge base**: Configure Pinecone and upload your documents
-
-4. **Test moderation**: Verify moderation messages match your needs
-
-5. **Deploy**: Build and deploy to your hosting platform (Vercel, AWS, etc.)
-
 ## Support
 
 For technical questions about tool integration, see `AGENTS.md`.
 
 For deployment issues, check the Vercel deployment logs and browser console for error messages.
 
----
-
-**Remember**: Most customization happens in `config.ts` and `prompts.ts`. Start there!
