@@ -153,7 +153,8 @@ export default function Chat() {
                   </AvatarFallback>
                 </Avatar>
                 <p className="tracking-tight">Chat with {AI_NAME}</p>
-                <p className="tracking-tight">Elective Choice and Holistic Optimization</p>
+                <p className="text-sm text-muted-foreground -mt-1">
+                  Elective Choice and Holistic Optimization</p>
               </ChatHeaderBlock>
               <ChatHeaderBlock className="justify-end">
                 <Button
