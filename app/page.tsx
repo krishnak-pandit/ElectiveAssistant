@@ -208,7 +208,7 @@ export default function Chat() {
                           <Input
                             {...field}
                             id="chat-form-message"
-                            className="h-15 pr-15 pl-5 bg-blue-900 text-white rounded-[20px] placeholder-white"
+                            className="h-15 pr-15 pl-5 bg-blue-900 text-white rounded-[20px] placeholder:text-white"
                             placeholder="Let's pick your electives...."
                             disabled={status === "streaming"}
                             aria-invalid={fieldState.invalid}
