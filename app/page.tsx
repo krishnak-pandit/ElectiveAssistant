@@ -156,12 +156,11 @@ export default function Chat() {
               </ChatHeaderBlock>
               <ChatHeaderBlock className="justify-end">
                 <Button
-                  variant="outline"
                   size="sm"
-                  className="cursor-pointer"
+                  className="cursor-pointer bg-blue-900 text-white hover:bg-blue-800 rounded-md px-4"
                   onClick={clearChat}
                 >
-                  <Plus className="size-4" />
+                  <Plus className="size-4 text-white" />
                   {CLEAR_CHAT_TEXT}
                 </Button>
               </ChatHeaderBlock>
@@ -204,8 +203,8 @@ export default function Chat() {
                           <Input
                             {...field}
                             id="chat-form-message"
-                            className="h-15 pr-15 pl-5 bg-blue-900 text-white rounded-[20px]"
-                            placeholder="Type your message here..."
+                            className="h-15 pr-15 pl-5 bg-blue-900 text-white rounded-[20px] placeholder-white"
+                            placeholder="Let's pick your electives...."
                             disabled={status === "streaming"}
                             aria-invalid={fieldState.invalid}
                             autoComplete="off"
