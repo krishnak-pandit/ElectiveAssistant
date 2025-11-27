@@ -143,19 +143,22 @@ export default function Chat() {
           <div className="relative overflow-visible">
             <ChatHeader>
               <ChatHeaderBlock />
-              <ChatHeaderBlock className="justify-center items-center">
-                <Avatar
-                  className="size-8 ring-1 ring-primary"
-                >
-                  <AvatarImage src="/logo.png" />
-                  <AvatarFallback>
-                    <Image src="/logo.png" alt="Logo" width={36} height={36} />
-                  </AvatarFallback>
-                </Avatar>
-                <p className="tracking-tight">Chat with {AI_NAME}</p>
-                <p className="text-sm text-muted-foreground -mt-1">
-                  Elective Choice and Holistic Optimization</p>
-              </ChatHeaderBlock>
+       <ChatHeaderBlock className="justify-center items-center flex flex-col">
+  <Avatar className="size-8 ring-1 ring-primary">
+    <AvatarImage src="/logo.png" />
+    <AvatarFallback>
+      <Image src="/logo.png" alt="Logo" width={36} height={36} />
+    </AvatarFallback>
+  </Avatar>
+
+  <p className="tracking-tight leading-tight">
+    Chat with {AI_NAME}
+  </p>
+
+  <p className="text-xs text-muted-foreground leading-none">
+    Elective Choice and Holistic Optimization
+  </p>
+</ChatHeaderBlock>
               <ChatHeaderBlock className="justify-end">
                 <Button
                   size="sm"
