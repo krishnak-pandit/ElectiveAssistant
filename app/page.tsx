@@ -156,7 +156,7 @@ export default function Chat() {
   </p>
 
   <p className="text-xs text-muted-foreground leading-none">
-    Elective Choice and Holistic Optimization
+    Elective Choice for Holistic Optimization
   </p>
 </ChatHeaderBlock>
               <ChatHeaderBlock className="justify-end">
