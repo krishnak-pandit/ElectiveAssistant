@@ -51,6 +51,15 @@ export const MODERATION_DENIAL_MESSAGE_SELF_HARM_INSTRUCTIONS = "I can't provide
 export const MODERATION_DENIAL_MESSAGE_VIOLENCE = "I can't discuss violent content. Please ask something else.";
 export const MODERATION_DENIAL_MESSAGE_VIOLENCE_GRAPHIC = "I can't discuss graphic violent content. Please ask something else.";
 export const MODERATION_DENIAL_MESSAGE_DEFAULT = "Your message violates our guidelines. I can't answer that.";
+export const MODERATION_DENIAL_MESSAGE_GRADE_MANIPULATION = "I can't help with manipulating grades, bypassing requirements, or exploiting course policies.";
+export const MODERATION_DENIAL_MESSAGE_ASSIGNMENT_HELP = "I can't solve graded assignments, quizzes, or exams for you. I can help you understand the concepts instead.";
+export const MODERATION_DENIAL_MESSAGE_PLAGIARISM_ACADEMIC = "I can't create work intended for academic submission. I can help you think through the topic so you can write your own answer.";
+export const MODERATION_DENIAL_MESSAGE_SYSTEM_ABUSE = "I can't help you bypass course registration rules, system limits, or academic policies.";
+export const MODERATION_DENIAL_MESSAGE_CAREER_CERTAINTY = "I can't guarantee job outcomes. I can help you understand how electives align with different career paths.";
+
+export const MODERATION_DENIAL_MESSAGE_MENTAL_HEALTH =
+  "I'm not a mental health professional. For emotional support, please talk to someone you trust or a qualified professional.";
+
 
 export const PINECONE_TOP_K = 40;
 export const PINECONE_INDEX_NAME = "my-ai";
